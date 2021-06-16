@@ -37,6 +37,8 @@ terminal Float NUM;
 terminal Integer VAR;
 terminal UMINUS;
 terminal Float PI, E, GAMMA, DEG, PHI;
+terminal SIN, COS, ATAN, EXP, LOG, LOG10, SQRT, INT, ABS;
+terminal OpPot;
 
 non terminal list;
 non terminal Float asgn, expr;
@@ -45,6 +47,7 @@ non terminal Float asgn, expr;
 precedence right OpAsig;
 precedence left OpSuma, OpResta;
 precedence left OpProd, OpDiv;
+precedence left OpPot;
 precedence left UMINUS;
 
 list	::=
@@ -67,7 +70,17 @@ expr	::= NUM:valNum      {: RESULT = valNum; :}
 	| expr:e1 OpResta expr:e2   {: RESULT = e1-e2; :}
 	| expr:e1 OpProd expr:e2    {: RESULT = e1*e2; :}
 	| expr:e1 OpDiv expr:e2     {: RESULT = e1/e2; :}
+        | expr:e1 OpPot expr:e2     {: RESULT = (float) Math.pow(e1,e2); :}
 	| ParIzq expr:e ParDer  {: RESULT = e; :}
+        | SIN ParIzq expr:e ParDer {: RESULT = (float) Math.sin(e); :}
+        | COS ParIzq expr:e ParDer {: RESULT = (float) Math.cos(e); :}
+        | ATAN ParIzq expr:e ParDer {: RESULT = (float) Math.atan(e); :}
+        | EXP ParIzq expr:e ParDer {: RESULT = (float) Math.exp(e); :}
+        | LOG ParIzq expr:e ParDer {: RESULT = (float) Math.log(e); :}
+        | LOG10 ParIzq expr:e ParDer {: RESULT = (float) Math.log10(e); :}
+        | SQRT ParIzq expr:e ParDer {: RESULT = (float) Math.sqrt(e); :}
+        | INT ParIzq expr:e ParDer {: RESULT = (float) Math.round(e); :}
+        | ABS ParIzq expr:e ParDer {: RESULT = (float) Math.abs(e); :}
 	| OpResta expr:e    {: RESULT = -e; :} %prec UMINUS
 	;
 

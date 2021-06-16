@@ -10,20 +10,30 @@ public class AnalizadorSintacticoSym {
   /* terminals */
   public static final int ParDer = 8;
   public static final int Enter = 9;
+  public static final int SIN = 18;
+  public static final int INT = 25;
+  public static final int COS = 19;
   public static final int PHI = 17;
   public static final int OpProd = 4;
   public static final int OpDiv = 5;
+  public static final int SQRT = 24;
+  public static final int LOG = 22;
+  public static final int EXP = 21;
   public static final int NUM = 10;
   public static final int OpAsig = 6;
   public static final int E = 14;
   public static final int EOF = 0;
+  public static final int LOG10 = 23;
   public static final int DEG = 16;
+  public static final int ATAN = 20;
+  public static final int ABS = 26;
   public static final int PI = 13;
   public static final int error = 1;
   public static final int OpSuma = 2;
   public static final int OpResta = 3;
   public static final int GAMMA = 15;
   public static final int VAR = 11;
+  public static final int OpPot = 27;
   public static final int ParIzq = 7;
   public static final int UMINUS = 12;
   public static final String[] terminalNames = new String[] {
@@ -44,7 +54,17 @@ public class AnalizadorSintacticoSym {
   "E",
   "GAMMA",
   "DEG",
-  "PHI"
+  "PHI",
+  "SIN",
+  "COS",
+  "ATAN",
+  "EXP",
+  "LOG",
+  "LOG10",
+  "SQRT",
+  "INT",
+  "ABS",
+  "OpPot"
   };
 }
 

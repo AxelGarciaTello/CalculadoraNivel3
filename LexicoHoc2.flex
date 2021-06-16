@@ -29,6 +29,15 @@ Digito = [0-9]
 "GAMMA"                 { return symbol(AnalizadorSintacticoSym.GAMMA, new Float("0.57721")); }
 "DEG"                   { return symbol(AnalizadorSintacticoSym.DEG, new Float("57.29577")); }
 "PHI"                   { return symbol(AnalizadorSintacticoSym.PHI, new Float("1.61803")); }
+"sin"                   { return symbol(AnalizadorSintacticoSym.SIN); }
+"cos"                   { return symbol(AnalizadorSintacticoSym.COS); }
+"atan"                  { return symbol(AnalizadorSintacticoSym.ATAN); }
+"exp"                   { return symbol(AnalizadorSintacticoSym.EXP); }
+"log"                   { return symbol(AnalizadorSintacticoSym.LOG); }
+"log10"                 { return symbol(AnalizadorSintacticoSym.LOG10); }
+"sqrt"                  { return symbol(AnalizadorSintacticoSym.SQRT); }
+"int"                   { return symbol(AnalizadorSintacticoSym.INT); }
+"abs"                   { return symbol(AnalizadorSintacticoSym.ABS); }
 [ \t]+                  { ;}
 "\n"			{ return symbol(AnalizadorSintacticoSym.Enter); }
 {Digito}+(\.{Digito}+)?	{ return symbol(AnalizadorSintacticoSym.NUM, new Float(yytext())); }
@@ -39,5 +48,6 @@ Digito = [0-9]
 "+"			{ return symbol(AnalizadorSintacticoSym.OpSuma); }
 ")"			{ return symbol(AnalizadorSintacticoSym.ParDer); }
 "("			{ return symbol(AnalizadorSintacticoSym.ParIzq); }
+"^"                     { return symbol(AnalizadorSintacticoSym.OpPot); }
 {LetraMin} 		{int IndVar; IndVar=(int) (yytext().charAt(0)) - (int)'a'; return symbol(AnalizadorSintacticoSym.VAR, new Integer(IndVar)); }
 .			{ return symbol(AnalizadorSintacticoSym.error); }
