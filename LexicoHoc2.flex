@@ -24,6 +24,11 @@ import java.io.Reader;
 LetraMin = [a-z]
 Digito = [0-9]
 %% /* Ahora van las expresiones regulares */
+"PI"                    { return symbol(AnalizadorSintacticoSym.PI, new Float("3.14159")); }
+"E"                     { return symbol(AnalizadorSintacticoSym.E, new Float("2.71828")); }
+"GAMMA"                 { return symbol(AnalizadorSintacticoSym.GAMMA, new Float("0.57721")); }
+"DEG"                   { return symbol(AnalizadorSintacticoSym.DEG, new Float("57.29577")); }
+"PHI"                   { return symbol(AnalizadorSintacticoSym.PHI, new Float("1.61803")); }
 [ \t]+                  { ;}
 "\n"			{ return symbol(AnalizadorSintacticoSym.Enter); }
 {Digito}+(\.{Digito}+)?	{ return symbol(AnalizadorSintacticoSym.NUM, new Float(yytext())); }

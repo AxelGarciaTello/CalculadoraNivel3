@@ -8,19 +8,24 @@ package ejemplo_hoc2;
 /** CUP generated class containing symbol constants. */
 public class AnalizadorSintacticoSym {
   /* terminals */
-  public static final int NUM = 10;
-  public static final int OpDiv = 5;
   public static final int ParDer = 8;
-  public static final int UMINUS = 12;
+  public static final int Enter = 9;
+  public static final int PHI = 17;
+  public static final int OpProd = 4;
+  public static final int OpDiv = 5;
+  public static final int NUM = 10;
+  public static final int OpAsig = 6;
+  public static final int E = 14;
+  public static final int EOF = 0;
+  public static final int DEG = 16;
+  public static final int PI = 13;
+  public static final int error = 1;
   public static final int OpSuma = 2;
   public static final int OpResta = 3;
-  public static final int Enter = 9;
-  public static final int EOF = 0;
+  public static final int GAMMA = 15;
   public static final int VAR = 11;
-  public static final int OpProd = 4;
-  public static final int OpAsig = 6;
-  public static final int error = 1;
   public static final int ParIzq = 7;
+  public static final int UMINUS = 12;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -34,7 +39,12 @@ public class AnalizadorSintacticoSym {
   "Enter",
   "NUM",
   "VAR",
-  "UMINUS"
+  "UMINUS",
+  "PI",
+  "E",
+  "GAMMA",
+  "DEG",
+  "PHI"
   };
 }
 

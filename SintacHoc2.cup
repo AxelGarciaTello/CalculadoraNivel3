@@ -36,6 +36,7 @@ terminal ParIzq, ParDer, Enter;
 terminal Float NUM;
 terminal Integer VAR;
 terminal UMINUS;
+terminal Float PI, E, GAMMA, DEG, PHI;
 
 non terminal list;
 non terminal Float asgn, expr;
@@ -56,6 +57,11 @@ asgn	::= VAR:indVar OpAsig expr:valExpr  {: RESULT = variables[indVar]= valExpr;
 
 expr	::= NUM:valNum      {: RESULT = valNum; :}
 	| VAR:indVar        {: RESULT = variables[indVar]; :}
+        | PI:valPi          {: RESULT = valPi; :}
+        | E:e               {: RESULT = e; :}
+        | GAMMA:valGa       {: RESULT = valGa; :}
+        | DEG:valDeg        {: RESULT = valDeg; :}
+        | PHI:valPhi        {: RESULT = valPhi; :}
 	| asgn:valAsgn      {: RESULT = valAsgn; :}
 	| expr:e1 OpSuma expr:e2 {: RESULT = e1+e2; :}
 	| expr:e1 OpResta expr:e2   {: RESULT = e1-e2; :}
